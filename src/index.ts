@@ -152,7 +152,7 @@ const renderHTML = (item: any) => {
   `;
 };
 
-app.get("/random", (c) => {
+app.get("/", (c) => {
   // ランダムに1つを選択
   const randomItem = data[Math.floor(Math.random() * data.length)];
 
