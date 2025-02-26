@@ -25,7 +25,7 @@ const renderHTML = (item: any) => {
             min-height: 100vh;
             transition: background-color 0.3s ease, color 0.3s ease;
           }
-        
+
           .container {
             background-color: #fff;
             padding: 1.5rem;
@@ -37,7 +37,7 @@ const renderHTML = (item: any) => {
             width: 90%;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
           }
-       
+
           h1 {
             color: #2c3e50;
             font-size: 2.25rem;
@@ -62,7 +62,7 @@ const renderHTML = (item: any) => {
             font-weight: 500;
             line-height: 1.2;
           }
-       
+
           .button:hover {
             background-color: #2980b9;
           }
@@ -88,12 +88,38 @@ const renderHTML = (item: any) => {
             color: #777;
             transition: color 0.3s ease;
           }
-        
+          .ad-container {
+            margin: 1.5rem 0;
+            text-align: center;
+            width: 100%;
+            
+          }
+          @media (max-width: 768px) {
+            .pc-ad {
+              display: none;
+            }
+          }
+          @media (min-width: 769px) {
+            .mobile-ad {
+              display: none;
+            }
+          }
         </style>
       </head>
       <body id="body">
         <div class="container" id="container">
+        <div class="ad-container mobile-ad">
+            <!-- スマホ用広告 -->
+            <script src="https://adm.shinobi.jp/s/bd41671b445805e39432f97d6352b3ce"></script>
+          </div>
+
+          <div class="ad-container pc-ad">
+            <!-- PC用広告 -->
+            <script src="https://adm.shinobi.jp/s/fcd73dd702b402fd19fa059fad64f101"></script>
+          </div>
+
           <h1 class="text-3xl font-bold">${item.subject}</h1>
+
           <button
             class="button"
             onclick="document.getElementById('hint').classList.toggle('hidden');"
@@ -108,6 +134,7 @@ const renderHTML = (item: any) => {
             答えを表示
           </button>
           <div id="answer" class="answer hidden">${item.answer}</div>
+
           <div class="footer">
             <p>NGSL データ</p>
             <p>
@@ -120,7 +147,6 @@ const renderHTML = (item: any) => {
             </p>
           </div>
         </div>
-       
       </body>
     </html>
   `;
